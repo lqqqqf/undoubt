@@ -24,17 +24,22 @@ configure(allprojects) { project ->
     apply plugin: "spring-boot"
 
     dependencies {
+        compile("com.google.guava:guava:19.0")
         testCompile("org.springframework.boot:spring-boot-starter-test")
     }
 }
 
 project(":web") {
-
+    apply plugin: 'war'
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
+    }
     dependencies {
         compile(
                 project(":biz"),
                 "org.springframework.boot:spring-boot-starter-freemarker"
         )
+        providedCompile("javax.servlet:javax.servlet-api:3.1.0")
     }
 
 }
@@ -44,6 +49,7 @@ project(":biz") {
     dependencies {
         compile(
                 'mysql:mysql-connector-java:5.1.38',
+                "org.springframework.boot:spring-boot-starter-security",
                 "org.springframework.boot:spring-boot-starter-data-jpa"
         )
     }
