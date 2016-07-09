@@ -18,8 +18,6 @@ public class User extends BaseEntity implements UserDetails {
 
     private String password;
 
-    private String salt;
-
     private Date createDate;
 
     private Date lastLoginDate;
@@ -50,14 +48,6 @@ public class User extends BaseEntity implements UserDetails {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getSalt() {
-        return salt;
-    }
-
-    public void setSalt(String salt) {
-        this.salt = salt;
     }
 
     public Date getCreateDate() {
@@ -110,7 +100,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return this.isAccountNonExpired;
     }
 
     public void setAccountNonExpired(boolean isAccountNonExpired) {
@@ -119,7 +109,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return this.isAccountNonLocked;
     }
 
     public void setAccountNonLocked(boolean isAccountNonLocked) {
@@ -127,7 +117,7 @@ public class User extends BaseEntity implements UserDetails {
     }
 
     public boolean isCredentialsNonExpired() {
-        return false;
+        return this.isCredentialsNonExpired;
     }
 
     public void setCredentialsNonExpired(boolean isCredentialsNonExpired) {
@@ -136,7 +126,7 @@ public class User extends BaseEntity implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return this.isEnabled;
     }
 
     public void setEnabled(boolean isEnabled) {

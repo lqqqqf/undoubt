@@ -1,8 +1,17 @@
 spring:
   datasource:
-    url: jdbc:mysql://192.168.1.102/undoubt
+    url: jdbc:mysql://192.168.1.101/undoubt
     username: sonar
     password: sonar
     driver-class-name: com.mysql.jdbc.Driver
   jpa:
     hibernate.ddl-auto: update
+    properties.hibernate.dialect: org.hibernate.dialect.MySQLDialect
+  freemarker:
+    suffix: .html
+    settings.auto_import: macro/common.ftl as cmn
+
+  mvc:
+    media-types:
+      json: application/json
+      xml: application/xml

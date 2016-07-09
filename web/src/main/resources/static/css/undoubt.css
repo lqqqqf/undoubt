@@ -1,0 +1,59 @@
+/*
+ * Style tweaks
+ * --------------------------------------------------
+ */
+html,
+body {
+    overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+body {
+    padding-top: 70px;
+}
+footer {
+    padding: 30px 0;
+}
+
+/*
+ * Off Canvas
+ * --------------------------------------------------
+ */
+@media screen and (max-width: 767px) {
+    .row-undoubt {
+        position: relative;
+        -webkit-transition: all .25s ease-out;
+        -o-transition: all .25s ease-out;
+        transition: all .25s ease-out;
+    }
+
+    .row-undoubt-right {
+        right: 0;
+    }
+
+    .row-undoubt-left {
+        left: 0;
+    }
+
+    .row-undoubt-right
+    .sidebar-undoubt {
+        right: -50%; /* 6 columns */
+    }
+
+    .row-undoubt-left
+    .sidebar-undoubt {
+        left: -50%; /* 6 columns */
+    }
+
+    .row-undoubt-right.active {
+        right: 50%; /* 6 columns */
+    }
+
+    .row-undoubt-left.active {
+        left: 50%; /* 6 columns */
+    }
+
+    .sidebar-undoubt {
+        position: absolute;
+        top: 0;
+        width: 50%; /* 6 columns */
+    }
+}

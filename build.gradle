@@ -9,7 +9,7 @@ buildscript {
     }
 }
 configure(allprojects) { project ->
-    group = "org.springframework"
+    group = "com.lqqqqf"
     version = "1.0"
 
     repositories {
@@ -28,21 +28,26 @@ configure(allprojects) { project ->
                 "javax.inject:javax.inject:1",
                 "com.google.guava:guava:19.0"
         )
-        testCompile("org.springframework.boot:spring-boot-starter-test")
+        testCompile(
+                "org.springframework.boot:spring-boot-starter-test",
+                "org.assertj:assertj-guava:3.0.0"
+        )
     }
 }
 
 project(":web") {
     apply plugin: "war"
-    configurations {
-        compile.exclude module: "spring-boot-starter-tomcat"
-    }
+
     dependencies {
         compile(
-                project(":biz"),
-                "org.springframework.boot:spring-boot-starter-freemarker"
+            project(":biz"),
+            "org.webjars:bootstrap:3.3.6",
+            "org.webjars:font-awesome:4.6.3",
+            "org.springframework:spring-oxm",
+            "org.springframework.security:spring-security-taglibs",
+            "org.springframework.boot:spring-boot-starter-freemarker"
         )
-        providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+        providedCompile("org.springframework.boot:spring-boot-starter-tomcat")
     }
 
 }
